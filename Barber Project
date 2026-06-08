@@ -1,0 +1,77 @@
+#Codeficação de gerenciador de Barbearia...
+#By Pedro Henrique Pereira da Silva & Hugo Ferreira Barbosa
+#08/06/2026 - Lógica e Programação
+numero_cliente = 0
+quant = 1
+valor_corte = 50
+valor_barba = 35
+valor_combo = 75
+saldo = 0
+def prox_client(quant):
+    valor = 0
+    for ficha in range(1, quant+1):
+        print(f'| Barbearia BodeLoko | Ficha: {ficha}')
+        
+def quantidade_client():
+    if numero_cliente <= 0:
+        print('| Barbearia BodeLoko | Não temos clientes hoje!')
+    else:
+        print(f'| Barbearia BodeLoko | Hoje nós temos '+numero_cliente, 'clientes')
+def add_client():
+    global numero_cliente
+    global saldo
+    global quant
+    name_client = input('Digite o nome do cliente: ')
+    quant += 1
+    print(f'| Barbearia BodeLoko | Novo cliente: {name_client} | Ficha: {quant}')
+    servico = int(input('Qual serviço você quer fazer?'))
+    print('1 - Corte de cabelo')
+    print('2 - Barba suprema')
+    print('3 - COMBO BOLADAAAAAAAAAAUM')
+    if servico == 1:
+        print('| Barbearia BodeLoko | Você escolheu fazer um corte de cabelo!')
+        print(f'| Barbearia BodeLoko | O Custo do serviço é {valor_corte}')
+        saldo += valor_corte
+    elif servico == 2:
+        print('| Barbearia BodeLoko | Você escolheu dar um tapa na barba!')
+        print(f'| Barbearia BodeLoko | O Custo do serviço é {valor_barba}')
+        saldo += valor_barba
+    if servico == 3:
+        print('| Barbearia BodeLoko | Você escolheu um COMBO BOLADAAAAAAAAAAUM!')
+        print(f'| Barbearia BodeLoko | O Custo do serviço é {valor_combo}')
+        saldo += valor_combo
+    else:
+        False
+def Saldo():
+    print(20 * '=')
+    print('| Barbearia BodeLoko |')
+    print(f'| LUCRO: {saldo}')
+    print(20 * '=')
+while True:
+    print(20 * '=')
+    print('| Barbearia BodeLoko |')
+    print(20 * '=')
+    print('1 - Verificar quantidade de clientes')
+    print('2 - Adicionar novo cliente')
+    print('3 - Verificar lucro')
+    print('4 - Próximo cliente')
+    print('5 - Finalizar expediente')
+    option = int(input('Digite a opção que você quer escolher:'))
+    if option == 1:
+        quantidade_client()
+    elif option == 2:
+        add_client()
+    elif option == 3:
+        Saldo()
+    elif option == 4:
+        prox_client(quant)
+    elif option == 5:
+        print(20 * "=")
+        print('| FINAL DE EXPEDIENTE | ')
+        print(20 * '=')
+        print(f'LUCRO TOTAL: R${saldo}')
+        print(20*'-')
+        print('B'+ 10*'É')
+    else:
+        print('Bocó, escolheu uma opção impossivel!')
+        break
